@@ -147,3 +147,49 @@ const businesses = [
     `
     outEl.innerHTML += "<hr/>"
   });
+
+  //filter method
+
+  // example array to contain all the New York businesses
+const newYorkBusinesses = businesses.filter(business => {
+    let inNewYork = false
+  
+    if (business.addressStateCode === "NY") {
+        inNewYork = true
+    }
+  
+    return inNewYork
+
+  })
+
+
+
+  const manufacturingBusinesses = businesses.filter(business => {
+      let manufacturing = false
+      
+      if (business.companyIndustry.toLowerCase() === "manufacturing") {
+          manufacturing = true
+      }
+
+      return manufacturing
+  })
+
+
+  const manEl = document.querySelector("#manufacturing")
+  manEl.innerHTML = "<h1>Manufacturing Businesses</h1>"
+
+  manufacturingBusinesses.forEach(business => {
+    manEl.innerHTML += `
+    <h2>${business.companyName}</h2>
+    <section>
+        ${business.addressFullStreet}
+    </section>
+    <section>
+        ${business.addressCity}, ${business['addressStateCode']} ${business['addressZipCode']}
+    </section>
+    `
+    manEl.innerHTML += "<hr/>"
+})
+
+// map method
+  
