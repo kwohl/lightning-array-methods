@@ -150,7 +150,7 @@ const businesses = [
 
   //filter method
 
-  // Array to contain all the New York businesses
+  // example array to contain all the New York businesses
 const newYorkBusinesses = businesses.filter(business => {
     let inNewYork = false
   
@@ -162,20 +162,21 @@ const newYorkBusinesses = businesses.filter(business => {
 
   })
 
-  const manEl = document.querySelector("#manufacturing")
-  manEl.innerHTML = "<h1>Manufacturing Businesses</h1>"
+
 
   const manufacturingBusinesses = businesses.filter(business => {
       let manufacturing = false
       
-      if (business.companyIndustry === "manufacturing") {
+      if (business.companyIndustry.toLowerCase() === "manufacturing") {
           manufacturing = true
       }
 
-    return manufacturing
+      return manufacturing
   })
 
-  console.log(manufacturingBusinesses)
+
+  const manEl = document.querySelector("#manufacturing")
+  manEl.innerHTML = "<h1>Manufacturing Businesses</h1>"
 
   manufacturingBusinesses.forEach(business => {
     manEl.innerHTML += `
@@ -189,4 +190,6 @@ const newYorkBusinesses = businesses.filter(business => {
     `
     manEl.innerHTML += "<hr/>"
 })
+
+// map method
   
