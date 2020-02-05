@@ -215,3 +215,33 @@ agents.forEach(agent => {
                         <div>${agent.phoneNumber}</div>`
                         outEl.innerHTML += "<hr/>";
 });
+
+
+// find method
+
+document
+    .querySelector("#companySearch")
+    .addEventListener("keypress", keyPressEvent => {
+        if (keyPressEvent.charCode === 13) {
+            /* WHEN  USER PRESSES ENTER, FIND MATCHING BUSINESS */
+            const foundBusiness = businesses.find(
+                business =>
+                    business.companyName.toLowerCase().includes(keyPressEvent.target.value.toLowerCase())
+            );
+
+            outEl.innerHTML = `
+                <h2>
+                ${foundBusiness.companyName}
+                </h2>
+                <section>
+                ${foundBusiness.addressFullStreet}
+
+                </section>
+                <section>
+                ${foundBusiness.addressCity},
+                ${foundBusiness.addressStateCode}
+                ${foundBusiness.addressZipCode}
+                </section>
+            `;
+        }
+    });
