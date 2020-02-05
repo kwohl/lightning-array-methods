@@ -200,34 +200,18 @@ outEl.innerHTML += "<h1>Purchasing Agents</h1>";
     from each business and store it in a new array
 */
 const agents = businesses.map(business => {
-    business.purchasingAgent,
-    business.companyName,
-    business.phoneWork
-    
-    return business.purchasingAgent
+    return {
+        "fullName": business.purchasingAgent.nameFirst + " " + business.purchasingAgent.nameLast,
+        "company": business.companyName,
+        "phoneNumber": business.phoneWork
+    }
 })
 
-const companies = businesses.map(business => {
-    return business.companyName
-})
-
-const phone = businesses.map(business => {
-    return business.phoneWork
-})
-
-console.table(agents, companies, phone)
+console.table(agents)
 
 agents.forEach(agent => { 
-  outEl.innerHTML += `<h2>${agent.nameFirst} ${agent.nameLast}</h2>`
+  outEl.innerHTML += `<h2>${agent.fullName}</h2>
+                        <div>${agent.company}</div>
+                        <div>${agent.phoneNumber}</div>`
                         outEl.innerHTML += "<hr/>";
 });
-
-
-companies.forEach(company => {
-    agents.push
-})
-
-
-companies.forEach(company => {
-    outEl.innerHTML += `<h2>${company.companyName}</h2>`
-})
